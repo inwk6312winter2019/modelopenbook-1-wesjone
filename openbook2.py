@@ -3,12 +3,21 @@ def replace_head(s1,s2,s3,net1,net2,net3,f1,f2):
   for line in f1:
     if s1 in line:
       newline = line.replace(s1,s3)
+      if net1 in line:
+        newline = newline.replace(net1,net3)
+      elif net2 in line:
+        newline = newline.replace(net2,net3)
       f2.write(newline)
     elif s2 in line:
       newline = line.replace(s2,s3)
+      if net1 in line:
+        newline = newline.replace(net1,net3)
+      elif net2 in line:
+        newline = newline.replace(net2,net3)
       f2.write(newline)
     else:
       f2.write(line)
+
 if __name__ =='__main__':
   s1 = '192'
   s2 = '172'
